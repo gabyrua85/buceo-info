@@ -1,11 +1,11 @@
 [build]
-  publish = "."
   command = "echo 'Forzando reconstrucción completa' && date"
+  publish = "."
 
 [build.environment]
   NODE_VERSION = "18"
-  NETLIFY_USE_YARN = "true"
   FORCE_REBUILD = "true"
+  NETLIFY_USE_YARN = "true"
 
 [[redirects]]
   from = "/*"
@@ -16,7 +16,7 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Cache-Control = "no-cache, no-store, must-revalidate"
+    Cache-Control = "no-cache, no-store, must-revalidate, max-age=0"
     Pragma = "no-cache"
     Expires = "0"
     X-Frame-Options = "DENY"
