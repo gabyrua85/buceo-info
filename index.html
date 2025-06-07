@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guía de Buceo Mundial</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 </head>
 <body>
     <div id="background-container"></div>
@@ -18,6 +19,16 @@
             <div class="search-box">
                 <input type="text" id="paisInput" placeholder="Ingresa el nombre del país...">
                 <button onclick="buscarPais()">Buscar</button>
+            </div>
+            <div class="filters">
+                <select id="regionFilter" onchange="filtrarPorRegion()">
+                    <option value="">Todas las regiones</option>
+                    <option value="america">América</option>
+                    <option value="europa">Europa</option>
+                    <option value="asia">Asia</option>
+                    <option value="oceania">Oceanía</option>
+                    <option value="africa">África</option>
+                </select>
             </div>
         </div>
 
@@ -51,7 +62,42 @@
                 </div>
             </div>
         </div>
+
+        <!-- Nueva sección de especies marinas -->
+        <div class="section-title">
+            <h2>Especies Marinas</h2>
+        </div>
+        <div class="species-section" id="especiesMarinas">
+            <p>Selecciona un país para ver las especies marinas</p>
+        </div>
+
+        <!-- Nueva sección de equipamiento -->
+        <div class="section-title">
+            <h2>Equipamiento Recomendado</h2>
+        </div>
+        <div class="equipment-section" id="equipamiento">
+            <p>Selecciona un país para ver el equipamiento recomendado</p>
+        </div>
+
+        <!-- Nueva sección de galería -->
+        <div class="section-title">
+            <h2>Galería de Imágenes</h2>
+        </div>
+        <div class="gallery-section" id="galeria">
+            <div class="gallery-container" id="galleryContainer">
+                <!-- Las imágenes se cargarán dinámicamente -->
+            </div>
+        </div>
+
+        <!-- Nueva sección de mapa -->
+        <div class="section-title">
+            <h2>Mapa de Ubicaciones</h2>
+        </div>
+        <div class="map-section">
+            <div id="map"></div>
+        </div>
     </div>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="script.js"></script>
 </body>
 </html> 

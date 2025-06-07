@@ -58,52 +58,155 @@ const paisesBuceo = {
     },
     'costa rica': {
         nombre: 'Costa Rica',
-        condicionesMar: 'Aguas templadas, visibilidad variable',
+        region: 'america',
+        condicionesMar: 'Aguas templadas, visibilidad variable. Mejor visibilidad en la costa del Pacífico',
         mareas: 'Mareas moderadas, mejores condiciones en marea baja',
         epocaIdeal: 'Diciembre a Abril',
-        imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'
+        imagen: 'https://images.unsplash.com/photo-1519046904884-53103b34b206'
     },
     'belice': {
         nombre: 'Belice',
+        region: 'america',
         condicionesMar: 'Aguas cálidas y claras, visibilidad excelente',
         mareas: 'Mareas suaves, condiciones ideales',
         epocaIdeal: 'Marzo a Junio',
-        imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'
+        imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e'
     },
     'cuba': {
         nombre: 'Cuba',
+        region: 'america',
         condicionesMar: 'Aguas cálidas, visibilidad excelente',
         mareas: 'Mareas suaves, condiciones estables',
         epocaIdeal: 'Noviembre a Abril',
-        imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'
+        imagen: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0'
     },
     'panama': {
         nombre: 'Panamá',
+        region: 'america',
         condicionesMar: 'Aguas templadas, visibilidad variable',
         mareas: 'Mareas moderadas, mejores condiciones en marea baja',
         epocaIdeal: 'Diciembre a Abril',
-        imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'
+        imagen: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a'
     },
     'peru': {
         nombre: 'Perú',
+        region: 'america',
         condicionesMar: 'Aguas frías, visibilidad variable',
         mareas: 'Mareas fuertes, consultar tabla de mareas',
         epocaIdeal: 'Diciembre a Marzo',
-        imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'
+        imagen: 'https://images.unsplash.com/photo-1528181304800-259b08848526'
     },
     'colombia': {
         nombre: 'Colombia',
+        region: 'america',
         condicionesMar: 'Aguas cálidas, visibilidad variable',
         mareas: 'Mareas moderadas, mejores condiciones en marea baja',
         epocaIdeal: 'Diciembre a Abril',
-        imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'
+        imagen: 'https://images.unsplash.com/photo-1519046904884-53103b34b206'
     },
     'brasil': {
         nombre: 'Brasil',
+        region: 'america',
         condicionesMar: 'Aguas templadas, visibilidad variable',
         mareas: 'Mareas moderadas, mejores condiciones en marea baja',
         epocaIdeal: 'Marzo a Mayo',
-        imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'
+        imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e'
+    },
+    'españa': {
+        nombre: 'España',
+        region: 'europa',
+        condicionesMar: 'Aguas templadas en el Mediterráneo, más frías en el Atlántico',
+        mareas: 'Mareas moderadas, mejores condiciones en marea baja',
+        epocaIdeal: 'Junio a Septiembre',
+        imagen: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0'
+    },
+    'italia': {
+        nombre: 'Italia',
+        region: 'europa',
+        condicionesMar: 'Aguas templadas, visibilidad excelente',
+        mareas: 'Mareas suaves, condiciones ideales',
+        epocaIdeal: 'Mayo a Octubre',
+        imagen: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a'
+    },
+    'grecia': {
+        nombre: 'Grecia',
+        region: 'europa',
+        condicionesMar: 'Aguas cálidas y claras, visibilidad excelente',
+        mareas: 'Mareas suaves, condiciones estables',
+        epocaIdeal: 'Junio a Septiembre',
+        imagen: 'https://images.unsplash.com/photo-1528181304800-259b08848526'
+    },
+    'croacia': {
+        nombre: 'Croacia',
+        region: 'europa',
+        condicionesMar: 'Aguas templadas, visibilidad variable',
+        mareas: 'Mareas moderadas, mejores condiciones en marea baja',
+        epocaIdeal: 'Junio a Septiembre',
+        imagen: 'https://images.unsplash.com/photo-1519046904884-53103b34b206'
+    },
+    'malta': {
+        nombre: 'Malta',
+        region: 'europa',
+        condicionesMar: 'Aguas templadas, visibilidad excelente',
+        mareas: 'Mareas suaves, condiciones ideales',
+        epocaIdeal: 'Mayo a Octubre',
+        imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e'
+    },
+    'japon': {
+        nombre: 'Japón',
+        region: 'asia',
+        condicionesMar: 'Aguas templadas, visibilidad variable',
+        mareas: 'Mareas fuertes, consultar tabla de mareas',
+        epocaIdeal: 'Julio a Octubre',
+        imagen: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0'
+    },
+    'nueva zelanda': {
+        nombre: 'Nueva Zelanda',
+        region: 'oceania',
+        condicionesMar: 'Aguas frías, visibilidad variable',
+        mareas: 'Mareas fuertes, consultar tabla de mareas',
+        epocaIdeal: 'Diciembre a Marzo',
+        imagen: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a'
+    },
+    'fiji': {
+        nombre: 'Fiji',
+        region: 'oceania',
+        condicionesMar: 'Aguas cálidas y claras, visibilidad excelente',
+        mareas: 'Mareas suaves, condiciones ideales',
+        epocaIdeal: 'Abril a Octubre',
+        imagen: 'https://images.unsplash.com/photo-1528181304800-259b08848526'
+    },
+    'samoa': {
+        nombre: 'Samoa',
+        region: 'oceania',
+        condicionesMar: 'Aguas cálidas, visibilidad variable',
+        mareas: 'Mareas moderadas, mejores condiciones en marea baja',
+        epocaIdeal: 'Mayo a Octubre',
+        imagen: 'https://images.unsplash.com/photo-1519046904884-53103b34b206'
+    },
+    'sudafrica': {
+        nombre: 'Sudáfrica',
+        region: 'africa',
+        condicionesMar: 'Aguas frías, visibilidad variable',
+        mareas: 'Mareas fuertes, consultar tabla de mareas',
+        epocaIdeal: 'Abril a Septiembre',
+        imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e'
+    },
+    'mozambique': {
+        nombre: 'Mozambique',
+        region: 'africa',
+        condicionesMar: 'Aguas cálidas, visibilidad excelente',
+        mareas: 'Mareas moderadas, mejores condiciones en marea baja',
+        epocaIdeal: 'Abril a Diciembre',
+        imagen: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0'
+    },
+    'seychelles': {
+        nombre: 'Seychelles',
+        region: 'africa',
+        condicionesMar: 'Aguas cálidas y claras, visibilidad excelente',
+        mareas: 'Mareas suaves, condiciones ideales',
+        epocaIdeal: 'Marzo a Mayo y Septiembre a Noviembre',
+        imagen: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a'
     }
 };
 
@@ -481,53 +584,217 @@ const informacionBuceo = {
     }
 };
 
-function buscarPais() {
-    const paisInput = document.getElementById('paisInput').value.trim();
-    if (paisInput === '') {
-        alert('Por favor, ingresa un país');
+// Datos adicionales para especies marinas
+const especiesMarinas = {
+    'mexico': [
+        { nombre: 'Tiburón Ballena', imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e', descripcion: 'El pez más grande del mundo' },
+        { nombre: 'Manta Raya', imagen: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0', descripcion: 'Majestuosa raya que puede alcanzar hasta 7 metros' },
+        { nombre: 'Pez León', imagen: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a', descripcion: 'Colorido pero venenoso' }
+    ],
+    'australia': [
+        { nombre: 'Tiburón Blanco', imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e', descripcion: 'El gran depredador del océano' },
+        { nombre: 'Pez Payaso', imagen: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0', descripcion: 'Famoso por su relación simbiótica con las anémonas' },
+        { nombre: 'Tortuga Verde', imagen: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a', descripcion: 'Especie en peligro de extinción' }
+    ],
+    'costa rica': [
+        { nombre: 'Tiburón Martillo', imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e', descripcion: 'Especie migratoria que visita la Isla del Coco' },
+        { nombre: 'Manta Raya', imagen: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0', descripcion: 'Frecuente en las aguas del Pacífico' },
+        { nombre: 'Tortuga Verde', imagen: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a', descripcion: 'Especie protegida que anida en las playas' }
+    ],
+    'belice': [
+        { nombre: 'Tiburón de Arrecife', imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e', descripcion: 'Común en el Gran Agujero Azul' },
+        { nombre: 'Pez Ángel', imagen: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0', descripcion: 'Colorido pez de arrecife' },
+        { nombre: 'Pez León', imagen: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a', descripcion: 'Especie invasora pero hermosa' }
+    ],
+    'cuba': [
+        { nombre: 'Tiburón de Arrecife', imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e', descripcion: 'Común en los jardines de coral' },
+        { nombre: 'Pez Ángel', imagen: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0', descripcion: 'Colorido pez de arrecife' },
+        { nombre: 'Tortuga Carey', imagen: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a', descripcion: 'Especie en peligro de extinción' }
+    ]
+};
+
+// Datos de equipamiento recomendado
+const equipamiento = {
+    'mexico': [
+        { nombre: 'Traje de Neopreno 3mm', imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e', descripcion: 'Para aguas cálidas' },
+        { nombre: 'Máscara de Buceo', imagen: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0', descripcion: 'Con lente de vidrio templado' },
+        { nombre: 'Aletas', imagen: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a', descripcion: 'Aletas de buceo abiertas' }
+    ],
+    'australia': [
+        { nombre: 'Traje de Neopreno 5mm', imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e', descripcion: 'Para aguas más frías' },
+        { nombre: 'Chaleco de Buceo', imagen: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0', descripcion: 'Con sistema de inflado automático' },
+        { nombre: 'Regulador', imagen: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a', descripcion: 'Regulador de primera etapa' }
+    ],
+    'costa rica': [
+        { nombre: 'Traje de Neopreno 3mm', imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e', descripcion: 'Para aguas templadas' },
+        { nombre: 'Máscara de Buceo', imagen: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0', descripcion: 'Con lente de vidrio templado' },
+        { nombre: 'Aletas', imagen: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a', descripcion: 'Aletas de buceo abiertas' }
+    ],
+    'belice': [
+        { nombre: 'Traje de Neopreno 3mm', imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e', descripcion: 'Para aguas cálidas' },
+        { nombre: 'Máscara de Buceo', imagen: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0', descripcion: 'Con lente de vidrio templado' },
+        { nombre: 'Aletas', imagen: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a', descripcion: 'Aletas de buceo abiertas' }
+    ],
+    'cuba': [
+        { nombre: 'Traje de Neopreno 3mm', imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e', descripcion: 'Para aguas cálidas' },
+        { nombre: 'Máscara de Buceo', imagen: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0', descripcion: 'Con lente de vidrio templado' },
+        { nombre: 'Aletas', imagen: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a', descripcion: 'Aletas de buceo abiertas' }
+    ]
+};
+
+// Coordenadas de los sitios de buceo
+const coordenadasSitios = {
+    'mexico': { lat: 20.6843, lng: -86.8458, nombre: 'Cozumel' },
+    'australia': { lat: -23.4421, lng: 151.9148, nombre: 'Gran Barrera de Coral' },
+    'tailandia': { lat: 7.5651, lng: 99.0257, nombre: 'Islas Similan' },
+    'egipto': { lat: 27.8717, lng: 34.2950, nombre: 'Mar Rojo' },
+    'costa rica': { lat: 5.5287, lng: -87.0618, nombre: 'Isla del Coco' },
+    'belice': { lat: 17.3162, lng: -87.5347, nombre: 'Gran Agujero Azul' },
+    'cuba': { lat: 22.4064, lng: -83.6872, nombre: 'Jardines de la Reina' },
+    'panama': { lat: 8.9824, lng: -79.5199, nombre: 'Isla Coiba' },
+    'peru': { lat: -12.0464, lng: -77.0428, nombre: 'Islas Ballestas' },
+    'colombia': { lat: 12.5897, lng: -81.7007, nombre: 'Isla de San Andrés' },
+    'brasil': { lat: -3.1190, lng: -60.0217, nombre: 'Arquipélago de Anavilhanas' },
+    'españa': { lat: 36.7213, lng: -4.4217, nombre: 'Costa del Sol' },
+    'italia': { lat: 40.8518, lng: 14.2681, nombre: 'Isla de Capri' },
+    'grecia': { lat: 36.3932, lng: 25.4615, nombre: 'Isla de Santorini' },
+    'croacia': { lat: 42.6507, lng: 18.0944, nombre: 'Dubrovnik' },
+    'malta': { lat: 35.9375, lng: 14.3754, nombre: 'Isla de Malta' },
+    'japon': { lat: 26.2124, lng: 127.6809, nombre: 'Okinawa' },
+    'nueva zelanda': { lat: -35.2809, lng: 174.0920, nombre: 'Bay of Islands' },
+    'fiji': { lat: -17.7792, lng: 177.1311, nombre: 'Islas Yasawa' },
+    'samoa': { lat: -13.7590, lng: -172.1046, nombre: 'Upolu' },
+    'sudafrica': { lat: -34.1983, lng: 18.4582, nombre: 'Cabo de Buena Esperanza' },
+    'mozambique': { lat: -25.9655, lng: 32.5832, nombre: 'Isla de Mozambique' },
+    'seychelles': { lat: -4.6796, lng: 55.4920, nombre: 'Isla de Mahé' }
+};
+
+// Inicializar el mapa
+let map;
+function initMap() {
+    map = L.map('map').setView([0, 0], 2);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+}
+
+// Función para filtrar por región
+function filtrarPorRegion() {
+    const region = document.getElementById('regionFilter').value;
+    const paisesFiltrados = Object.entries(paisesBuceo).filter(([_, pais]) => {
+        if (!region) return true;
+        return pais.region === region;
+    });
+    mostrarPaisesFiltrados(paisesFiltrados);
+}
+
+// Función para mostrar especies marinas
+function mostrarEspeciesMarinas(pais) {
+    const especies = especiesMarinas[pais] || [];
+    const container = document.getElementById('especiesMarinas');
+    
+    if (especies.length === 0) {
+        container.innerHTML = '<p>No hay información disponible sobre especies marinas para este país.</p>';
         return;
     }
 
-    try {
-        const pais = paisInput.toLowerCase().trim();
-        const backgroundContainer = document.getElementById('background-container');
+    const html = `
+        <div class="species-grid">
+            ${especies.map(especie => `
+                <div class="species-card">
+                    <img src="${especie.imagen}" alt="${especie.nombre}">
+                    <h3>${especie.nombre}</h3>
+                    <p>${especie.descripcion}</p>
+                </div>
+            `).join('')}
+        </div>
+    `;
+    container.innerHTML = html;
+}
 
-        // Buscar imágenes para el país
-        if (imagenesPaises[pais]) {
-            const imagenes = imagenesPaises[pais];
-            const randomIndex = Math.floor(Math.random() * imagenes.length);
-            backgroundContainer.style.backgroundImage = `url(${imagenes[randomIndex]})`;
-        } else {
-            backgroundContainer.style.backgroundImage = 'url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e)';
-        }
+// Función para mostrar equipamiento
+function mostrarEquipamiento(pais) {
+    const equip = equipamiento[pais] || [];
+    const container = document.getElementById('equipamiento');
+    
+    if (equip.length === 0) {
+        container.innerHTML = '<p>No hay información disponible sobre equipamiento para este país.</p>';
+        return;
+    }
 
-        // Mostrar información del país
-        const resultado = document.getElementById('resultado');
-        const condicionesMar = document.getElementById('condicionesMar');
-        const mareas = document.getElementById('mareas');
-        const epocaIdeal = document.getElementById('epocaIdeal');
-        const ropaRecomendada = document.getElementById('ropaRecomendada');
+    const html = `
+        <div class="equipment-list">
+            ${equip.map(item => `
+                <div class="equipment-item">
+                    <img src="${item.imagen}" alt="${item.nombre}">
+                    <div>
+                        <h3>${item.nombre}</h3>
+                        <p>${item.descripcion}</p>
+                    </div>
+                </div>
+            `).join('')}
+        </div>
+    `;
+    container.innerHTML = html;
+}
 
-        if (informacionBuceo[pais]) {
-            const info = informacionBuceo[pais];
-            resultado.innerHTML = `<h2>${paisInput}</h2>`;
-            condicionesMar.innerHTML = `<p>${info.condicionesMar}</p>`;
-            mareas.innerHTML = `<p>${info.mareas}</p>`;
-            epocaIdeal.innerHTML = `<p>${info.epocaIdeal}</p>`;
-            ropaRecomendada.innerHTML = `<p>${info.ropaRecomendada}</p>`;
-        } else {
-            resultado.innerHTML = `<h2>País no encontrado</h2><p>Por favor, intenta con otro país o verifica la ortografía</p>`;
-            condicionesMar.innerHTML = '<p>No hay información disponible para este país</p>';
-            mareas.innerHTML = '<p>No hay información disponible para este país</p>';
-            epocaIdeal.innerHTML = '<p>No hay información disponible para este país</p>';
-            ropaRecomendada.innerHTML = '<p>No hay información disponible para este país</p>';
-        }
+// Función para mostrar galería
+function mostrarGaleria(pais) {
+    const imagenes = imagenesPaises[pais] || [];
+    const container = document.getElementById('galleryContainer');
+    
+    if (imagenes.length === 0) {
+        container.innerHTML = '<p>No hay imágenes disponibles para este país.</p>';
+        return;
+    }
 
-    } catch (error) {
-        console.error('Error:', error);
-        alert('Hubo un error al buscar la información. Por favor, intenta de nuevo.');
+    const html = imagenes.map(img => `
+        <div class="gallery-item">
+            <img src="${img}" alt="Imagen de buceo">
+        </div>
+    `).join('');
+    container.innerHTML = html;
+}
+
+// Función para actualizar el mapa
+function actualizarMapa(pais) {
+    const coordenadas = coordenadasSitios[pais];
+    if (!coordenadas) return;
+
+    map.setView([coordenadas.lat, coordenadas.lng], 10);
+    L.marker([coordenadas.lat, coordenadas.lng])
+        .bindPopup(coordenadas.nombre)
+        .addTo(map);
+}
+
+// Modificar la función buscarPais existente
+function buscarPais() {
+    const paisInput = document.getElementById('paisInput').value.toLowerCase();
+    const pais = paisesBuceo[paisInput];
+
+    if (pais) {
+        // Actualizar información existente
+        document.getElementById('condicionesMar').innerHTML = `<p>${pais.condicionesMar}</p>`;
+        document.getElementById('mareas').innerHTML = `<p>${pais.mareas}</p>`;
+        document.getElementById('epocaIdeal').innerHTML = `<p>${pais.epocaIdeal}</p>`;
+        
+        // Actualizar nuevas secciones
+        mostrarEspeciesMarinas(paisInput);
+        mostrarEquipamiento(paisInput);
+        mostrarGaleria(paisInput);
+        actualizarMapa(paisInput);
+        
+        // Actualizar fondo
+        document.getElementById('background-container').style.backgroundImage = `url(${pais.imagen})`;
+    } else {
+        alert('País no encontrado. Por favor, intenta con otro país.');
     }
 }
+
+// Inicializar el mapa cuando se carga la página
+window.onload = function() {
+    initMap();
+};
 
 // Permitir búsqueda al presionar Enter
 document.getElementById('paisInput').addEventListener('keypress', function(e) {
