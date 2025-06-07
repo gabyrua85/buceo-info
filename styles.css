@@ -341,4 +341,77 @@ header p {
     #map {
         height: 300px;
     }
+}
+
+.region-info {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.region-info h2 {
+    color: #000;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.region-info h3 {
+    color: #000;
+    margin: 20px 0 10px;
+    font-size: 1.4em;
+}
+
+.region-info p {
+    color: #000;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.region-info ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.region-info li {
+    color: #000;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.region-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.filters {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.filters select {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    background-color: white;
+    color: #000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filters select:hover {
+    background-color: #f8f9fa;
+    border-color: #0056b3;
+}
+
+.filters select:focus {
+    outline: none;
+    border-color: #0056b3;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 } 

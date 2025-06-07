@@ -669,6 +669,55 @@ const coordenadasSitios = {
     'seychelles': { lat: -4.6796, lng: 55.4920, nombre: 'Isla de Mahé' }
 };
 
+// Información por regiones
+const regiones = {
+    america: {
+        nombre: "América",
+        descripcion: "América ofrece una gran diversidad de sitios de buceo, desde los arrecifes del Caribe hasta las frías aguas del Pacífico Sur.",
+        imagen: "https://images.unsplash.com/photo-1587595431973-160d0d94add1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesGenerales: "Las condiciones varían significativamente entre el Caribe (aguas cálidas y claras) y el Pacífico (aguas más frías y ricas en nutrientes).",
+        epocaIdeal: "Caribe: Diciembre a Abril. Pacífico: Diciembre a Marzo.",
+        especiesComunes: ["Tortugas marinas", "Tiburones", "Rayas", "Peces de arrecife"],
+        equipamientoRecomendado: ["Traje de neopreno 3-7mm", "Regulador", "BCD", "Computadora de buceo"]
+    },
+    europa: {
+        nombre: "Europa",
+        descripcion: "Europa cuenta con diversos sitios de buceo, desde el Mediterráneo hasta los fiordos nórdicos.",
+        imagen: "https://images.unsplash.com/photo-1587595431973-160d0d94add1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesGenerales: "Mediterráneo: aguas cálidas y claras. Atlántico: aguas más frías y corrientes fuertes.",
+        epocaIdeal: "Mediterráneo: Mayo a Octubre. Atlántico: Julio a Septiembre.",
+        especiesComunes: ["Meros", "Barracudas", "Pulpos", "Corales"],
+        equipamientoRecomendado: ["Traje de neopreno 5-7mm", "Traje seco para aguas frías", "Regulador", "BCD"]
+    },
+    asia: {
+        nombre: "Asia",
+        descripcion: "Asia alberga algunos de los mejores sitios de buceo del mundo, con una increíble biodiversidad marina.",
+        imagen: "https://images.unsplash.com/photo-1587595431973-160d0d94add1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesGenerales: "Aguas tropicales cálidas con excelente visibilidad en la mayoría de los sitios.",
+        epocaIdeal: "Varía por región, generalmente Octubre a Abril.",
+        especiesComunes: ["Tiburones ballena", "Mantas", "Tortugas", "Peces de arrecife"],
+        equipamientoRecomendado: ["Traje de neopreno 3-5mm", "Regulador", "BCD", "Computadora de buceo"]
+    },
+    oceania: {
+        nombre: "Oceanía",
+        descripcion: "Oceanía es hogar de la Gran Barrera de Coral y numerosos sitios de buceo de clase mundial.",
+        imagen: "https://images.unsplash.com/photo-1587595431973-160d0d94add1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesGenerales: "Aguas tropicales cálidas con excelente visibilidad y corrientes moderadas.",
+        epocaIdeal: "Mayo a Noviembre en la mayoría de las regiones.",
+        especiesComunes: ["Corales", "Peces de arrecife", "Tiburones", "Rayas"],
+        equipamientoRecomendado: ["Traje de neopreno 3-5mm", "Regulador", "BCD", "Computadora de buceo"]
+    },
+    africa: {
+        nombre: "África",
+        descripcion: "África ofrece experiencias únicas de buceo, desde el Océano Índico hasta el Mar Rojo.",
+        imagen: "https://images.unsplash.com/photo-1587595431973-160d0d94add1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesGenerales: "Mar Rojo: aguas cálidas y claras. Océano Índico: corrientes fuertes y gran vida marina.",
+        epocaIdeal: "Mar Rojo: Marzo a Mayo y Septiembre a Noviembre. Océano Índico: Diciembre a Marzo.",
+        especiesComunes: ["Tiburones", "Delfines", "Tortugas", "Peces de arrecife"],
+        equipamientoRecomendado: ["Traje de neopreno 3-5mm", "Regulador", "BCD", "Computadora de buceo"]
+    }
+};
+
 // Inicializar el mapa
 let map;
 function initMap() {
@@ -682,14 +731,44 @@ function initMap() {
     }).addTo(map);
 }
 
+// Función para mostrar información por región
+function mostrarRegion(region) {
+    const infoRegion = regiones[region];
+    if (!infoRegion) return;
+
+    const container = document.getElementById('resultado');
+    container.innerHTML = `
+        <div class="region-info">
+            <h2>${infoRegion.nombre}</h2>
+            <img src="${infoRegion.imagen}" alt="${infoRegion.nombre}" class="region-image">
+            <p>${infoRegion.descripcion}</p>
+            <h3>Condiciones Generales</h3>
+            <p>${infoRegion.condicionesGenerales}</p>
+            <h3>Época Ideal</h3>
+            <p>${infoRegion.epocaIdeal}</p>
+            <h3>Especies Comunes</h3>
+            <ul>
+                ${infoRegion.especiesComunes.map(especie => `<li>${especie}</li>`).join('')}
+            </ul>
+            <h3>Equipamiento Recomendado</h3>
+            <ul>
+                ${infoRegion.equipamientoRecomendado.map(item => `<li>${item}</li>`).join('')}
+            </ul>
+        </div>
+    `;
+
+    // Actualizar las secciones de información
+    document.getElementById('condicionesMar').innerHTML = `<p>${infoRegion.condicionesGenerales}</p>`;
+    document.getElementById('epocaIdeal').innerHTML = `<p>${infoRegion.epocaIdeal}</p>`;
+    document.getElementById('ropaRecomendada').innerHTML = `<p>${infoRegion.equipamientoRecomendado.join(', ')}</p>`;
+}
+
 // Función para filtrar por región
 function filtrarPorRegion() {
     const region = document.getElementById('regionFilter').value;
-    const paisesFiltrados = Object.entries(paisesBuceo).filter(([_, pais]) => {
-        if (!region) return true;
-        return pais.region === region;
-    });
-    mostrarPaisesFiltrados(paisesFiltrados);
+    if (region) {
+        mostrarRegion(region);
+    }
 }
 
 // Función para mostrar especies marinas
