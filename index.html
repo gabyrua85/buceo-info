@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Buceo Mundial</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="background-container"></div>
+    <div class="container">
+        <header>
+            <h1>Guía de Buceo Mundial</h1>
+            <p>Descubre las mejores épocas para bucear en diferentes países</p>
+        </header>
+
+        <div class="search-section">
+            <div class="search-box">
+                <input type="text" id="paisInput" placeholder="Ingresa el nombre del país...">
+                <button onclick="buscarPais()">Buscar</button>
+            </div>
+        </div>
+
+        <div class="result-section" id="resultado">
+            <!-- Los resultados se mostrarán aquí -->
+        </div>
+
+        <div class="info-cards">
+            <div class="card">
+                <h3>Condiciones del Mar</h3>
+                <div id="condicionesMar">
+                    <p>Selecciona un país para ver las condiciones</p>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Mareas</h3>
+                <div id="mareas">
+                    <p>Selecciona un país para ver las mareas</p>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Época Ideal</h3>
+                <div id="epocaIdeal">
+                    <p>Selecciona un país para ver la mejor época</p>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Ropa Recomendada</h3>
+                <div id="ropaRecomendada">
+                    <p>Selecciona un país para ver la ropa recomendada</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
