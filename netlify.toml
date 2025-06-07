@@ -1,27 +1,12 @@
 [build]
-  command = "echo 'Forzando reconstrucción completa' && date"
   publish = "."
-
-[build.environment]
-  NODE_VERSION = "18"
-  FORCE_REBUILD = "true"
-  NETLIFY_USE_YARN = "true"
-  NETLIFY_CACHE_DISABLED = "true"
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-  force = true
 
 [[headers]]
   for = "/*"
   [headers.values]
-    Cache-Control = "no-cache, no-store, must-revalidate, max-age=0, private"
-    Pragma = "no-cache"
-    Expires = "0"
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-    Clear-Site-Data = "\"cache\",\"cookies\",\"storage\""
-    Surrogate-Control = "no-store"
-    Surrogate-Key = "random_key" 
+    Cache-Control = "no-store" 
