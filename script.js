@@ -807,4 +807,112 @@ document.getElementById('paisInput').addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
         buscarPais();
     }
-}); 
+});
+
+const paises = [
+    // Países existentes...
+    {
+        nombre: "Ecuador",
+        region: "america",
+        coordenadas: { lat: -0.1807, lng: -78.4678 },
+        imagen: "https://images.unsplash.com/photo-1587595431973-160d0d94add1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Las Islas Galápagos ofrecen aguas cristalinas con visibilidad de hasta 30 metros. Las corrientes pueden ser fuertes, especialmente en los sitios de buceo más remotos.",
+        mareas: "Las mareas son moderadas, con variaciones de 1-2 metros. Las mejores condiciones se dan durante la marea alta.",
+        epocaIdeal: "Diciembre a Mayo: Aguas más cálidas (24-28°C) y mejor visibilidad. Junio a Noviembre: Aguas más frías (18-22°C) pero con más vida marina.",
+        ropaRecomendada: "Traje de neopreno de 5mm a 7mm, capucha, guantes y botas. En temporada fría, considerar un traje seco.",
+        especiesMarinas: [
+            {
+                nombre: "Tiburón Martillo",
+                descripcion: "Grandes grupos de tiburones martillo se pueden ver en las Islas Galápagos, especialmente en Wolf y Darwin.",
+                imagen: "https://images.unsplash.com/photo-1584362917165-526a968579e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                epoca: "Junio a Noviembre"
+            },
+            {
+                nombre: "Tortuga Marina",
+                descripcion: "Las tortugas verdes y carey son comunes en las aguas de Galápagos.",
+                imagen: "https://images.unsplash.com/photo-1548574505-5e239809ee19?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                epoca: "Todo el año"
+            },
+            {
+                nombre: "Manta Raya",
+                descripcion: "Las mantas raya se pueden ver en varios sitios, especialmente en la Isla de la Plata.",
+                imagen: "https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                epoca: "Diciembre a Mayo"
+            }
+        ],
+        equipamiento: [
+            "Traje de neopreno de 5-7mm",
+            "Regulador con octopus",
+            "BCD con suficiente flotabilidad",
+            "Computadora de buceo",
+            "Linterna subacuática",
+            "Señalizador de superficie",
+            "Kit de primeros auxilios"
+        ]
+    },
+    {
+        nombre: "Colombia",
+        region: "america",
+        coordenadas: { lat: 4.5709, lng: -74.2973 },
+        imagen: "https://images.unsplash.com/photo-1587595431973-160d0d94add1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Las aguas del Caribe colombiano son cálidas y cristalinas, con visibilidad de hasta 30 metros. Las corrientes son moderadas.",
+        mareas: "Las mareas son suaves, con variaciones de 0.5-1 metro. Las mejores condiciones se dan durante la marea alta.",
+        epocaIdeal: "Diciembre a Abril: Mejor visibilidad y condiciones climáticas. Mayo a Noviembre: Temporada de lluvias pero con buena visibilidad.",
+        ropaRecomendada: "Traje de neopreno de 3mm a 5mm, gafas de sol, protector solar resistente al agua.",
+        especiesMarinas: [
+            {
+                nombre: "Pez León",
+                descripcion: "Especie invasora que se puede encontrar en varios sitios de buceo.",
+                imagen: "https://images.unsplash.com/photo-1584362917165-526a968579e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                epoca: "Todo el año"
+            },
+            {
+                nombre: "Tortuga Carey",
+                descripcion: "Común en los arrecifes de coral de las Islas del Rosario.",
+                imagen: "https://images.unsplash.com/photo-1548574505-5e239809ee19?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                epoca: "Todo el año"
+            }
+        ],
+        equipamiento: [
+            "Traje de neopreno de 3-5mm",
+            "Regulador con octopus",
+            "BCD",
+            "Computadora de buceo",
+            "Linterna subacuática",
+            "Señalizador de superficie"
+        ]
+    },
+    {
+        nombre: "Perú",
+        region: "america",
+        coordenadas: { lat: -12.0464, lng: -77.0428 },
+        imagen: "https://images.unsplash.com/photo-1587595431973-160d0d94add1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Las aguas del Pacífico peruano son frías debido a la corriente de Humboldt. Visibilidad variable de 5-15 metros.",
+        mareas: "Las mareas son moderadas, con variaciones de 1-2 metros. Las mejores condiciones se dan durante la marea alta.",
+        epocaIdeal: "Diciembre a Marzo: Aguas más cálidas y mejor visibilidad. Abril a Noviembre: Aguas más frías pero con más vida marina.",
+        ropaRecomendada: "Traje de neopreno de 7mm o traje seco, capucha, guantes y botas.",
+        especiesMarinas: [
+            {
+                nombre: "Lobo Marino",
+                descripcion: "Grandes colonias de lobos marinos en las Islas Ballestas.",
+                imagen: "https://images.unsplash.com/photo-1584362917165-526a968579e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                epoca: "Todo el año"
+            },
+            {
+                nombre: "Pingüino de Humboldt",
+                descripcion: "Endémico de la corriente de Humboldt, se puede ver en las Islas Ballestas.",
+                imagen: "https://images.unsplash.com/photo-1548574505-5e239809ee19?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                epoca: "Todo el año"
+            }
+        ],
+        equipamiento: [
+            "Traje de neopreno de 7mm o traje seco",
+            "Regulador con octopus",
+            "BCD con suficiente flotabilidad",
+            "Computadora de buceo",
+            "Linterna subacuática",
+            "Señalizador de superficie",
+            "Kit de primeros auxilios"
+        ]
+    }
+]; 
