@@ -855,7 +855,7 @@ function actualizarMapa(pais) {
         .openPopup();
 }
 
-// Actualizar la función buscarPais para incluir el mapa
+// Función para buscar país
 function buscarPais() {
     const input = document.getElementById('paisInput');
     const pais = input.value.trim();
@@ -865,15 +865,49 @@ function buscarPais() {
         return;
     }
 
-    const paisEncontrado = paisesBuceo[pais];
+    const paisEncontrado = paises.find(p => p.nombre.toLowerCase() === pais.toLowerCase());
     
     if (paisEncontrado) {
         mostrarResultado(paisEncontrado);
-        mostrarEspeciesMarinas(pais);
-        actualizarMapa(pais);
+        mostrarEspeciesMarinas(paisEncontrado);
+        mostrarEquipamiento(paisEncontrado);
+        actualizarMapa(paisEncontrado);
     } else {
         document.getElementById('resultado').innerHTML = '<p>País no encontrado. Por favor, intenta con otro nombre.</p>';
     }
+}
+
+// Función para mostrar resultado
+function mostrarResultado(pais) {
+    const container = document.getElementById('resultado');
+    container.innerHTML = `
+        <div class="pais-info">
+            <h2>${pais.nombre}</h2>
+            <img src="${pais.imagen}" alt="${pais.nombre}" class="pais-image">
+            <div class="info-section">
+                <h3>Condiciones del Mar</h3>
+                <p>${pais.condicionesMar}</p>
+            </div>
+            <div class="info-section">
+                <h3>Mareas</h3>
+                <p>${pais.mareas}</p>
+            </div>
+            <div class="info-section">
+                <h3>Época Ideal</h3>
+                <p>${pais.epocaIdeal}</p>
+            </div>
+            <div class="info-section">
+                <h3>Ropa Recomendada</h3>
+                <p>${pais.ropaRecomendada}</p>
+            </div>
+        </div>
+    `;
+
+    // Actualizar las secciones de información
+    document.getElementById('condicionesMar').innerHTML = `<p>${pais.condicionesMar}</p>`;
+    document.getElementById('mareas').innerHTML = `<p>${pais.mareas}</p>`;
+    document.getElementById('epocaIdeal').innerHTML = `<p>${pais.epocaIdeal}</p>`;
+    document.getElementById('ropaRecomendada').innerHTML = `<p>${pais.ropaRecomendada}</p>`;
 }
 
 // Inicializar el mapa cuando se carga la página
