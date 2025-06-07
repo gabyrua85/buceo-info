@@ -1,15 +1,17 @@
 [build]
   publish = "."
-  command = "echo 'Forzando reconstrucción'"
+  command = "echo 'Forzando reconstrucción completa' && date"
 
 [build.environment]
   NODE_VERSION = "18"
   NETLIFY_USE_YARN = "true"
+  FORCE_REBUILD = "true"
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  force = true
 
 [[headers]]
   for = "/*"
@@ -18,4 +20,5 @@
     Pragma = "no-cache"
     Expires = "0"
     X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block" 
+    X-XSS-Protection = "1; mode=block"
+    Clear-Site-Data = "\"cache\",\"cookies\",\"storage\"" 
