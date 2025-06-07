@@ -6,6 +6,7 @@
   NODE_VERSION = "18"
   FORCE_REBUILD = "true"
   NETLIFY_USE_YARN = "true"
+  NETLIFY_CACHE_DISABLED = "true"
 
 [[redirects]]
   from = "/*"
@@ -16,9 +17,11 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Cache-Control = "no-cache, no-store, must-revalidate, max-age=0"
+    Cache-Control = "no-cache, no-store, must-revalidate, max-age=0, private"
     Pragma = "no-cache"
     Expires = "0"
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
-    Clear-Site-Data = "\"cache\",\"cookies\",\"storage\"" 
+    Clear-Site-Data = "\"cache\",\"cookies\",\"storage\""
+    Surrogate-Control = "no-store"
+    Surrogate-Key = "random_key" 
