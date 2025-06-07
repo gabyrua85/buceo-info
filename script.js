@@ -17,33 +17,6 @@ const paises = [
         mareas: "Moderadas, con corrientes ocasionales",
         epocaIdeal: "Todo el año, mejor de junio a noviembre",
         ropaRecomendada: "Traje de neopreno 3mm"
-    },
-    {
-        nombre: "Tailandia",
-        region: "Asia",
-        imagen: "https://images.unsplash.com/photo-1528181304800-259b08848526?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        condicionesMar: "Aguas cálidas y cristalinas",
-        mareas: "Suaves, ideales para principiantes",
-        epocaIdeal: "Noviembre a abril",
-        ropaRecomendada: "Traje de neopreno 3mm"
-    },
-    {
-        nombre: "Egipto",
-        region: "África",
-        imagen: "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        condicionesMar: "Aguas cálidas del Mar Rojo",
-        mareas: "Suaves, excelente visibilidad",
-        epocaIdeal: "Marzo a mayo y septiembre a noviembre",
-        ropaRecomendada: "Traje de neopreno 3mm"
-    },
-    {
-        nombre: "España",
-        region: "Europa",
-        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        condicionesMar: "Aguas templadas del Mediterráneo",
-        mareas: "Moderadas, buena visibilidad",
-        epocaIdeal: "Junio a septiembre",
-        ropaRecomendada: "Traje de neopreno 5mm"
     }
 ];
 
