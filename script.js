@@ -1,4 +1,271 @@
-// Base de datos de países y sus condiciones de buceo
+// Datos de países
+const paises = [
+    {
+        nombre: "México",
+        region: "América",
+        imagen: "https://images.unsplash.com/photo-1512813195386-6cf811ad3542?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas cálidas y claras en el Caribe, más frías en el Pacífico",
+        mareas: "Moderadas en el Caribe, más fuertes en el Pacífico",
+        epocaIdeal: "Todo el año, mejor de diciembre a abril",
+        ropaRecomendada: "Traje de neopreno 3mm en el Caribe, 5mm en el Pacífico"
+    },
+    {
+        nombre: "Australia",
+        region: "Oceanía",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas cálidas y claras en la Gran Barrera de Coral",
+        mareas: "Moderadas, con corrientes ocasionales",
+        epocaIdeal: "Todo el año, mejor de junio a noviembre",
+        ropaRecomendada: "Traje de neopreno 3mm"
+    },
+    {
+        nombre: "Tailandia",
+        region: "Asia",
+        imagen: "https://images.unsplash.com/photo-1528181304800-259b08848526?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas cálidas y cristalinas",
+        mareas: "Suaves, ideales para principiantes",
+        epocaIdeal: "Noviembre a abril",
+        ropaRecomendada: "Traje de neopreno 3mm"
+    },
+    {
+        nombre: "Egipto",
+        region: "África",
+        imagen: "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas cálidas del Mar Rojo",
+        mareas: "Suaves, excelente visibilidad",
+        epocaIdeal: "Marzo a mayo y septiembre a noviembre",
+        ropaRecomendada: "Traje de neopreno 3mm"
+    },
+    {
+        nombre: "España",
+        region: "Europa",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas templadas del Mediterráneo",
+        mareas: "Moderadas, buena visibilidad",
+        epocaIdeal: "Junio a septiembre",
+        ropaRecomendada: "Traje de neopreno 5mm"
+    }
+];
+
+// Función para buscar país
+function buscarPais() {
+    const input = document.getElementById('paisInput');
+    const pais = input.value.trim();
+    
+    if (pais === '') {
+        alert('Por favor, ingresa el nombre de un país');
+        return;
+    }
+
+    const paisEncontrado = paises.find(p => p.nombre.toLowerCase() === pais.toLowerCase());
+    
+    if (paisEncontrado) {
+        mostrarResultado(paisEncontrado);
+    } else {
+        document.getElementById('resultado').innerHTML = '<p>País no encontrado. Por favor, intenta con otro nombre.</p>';
+    }
+}
+
+// Función para mostrar resultado
+function mostrarResultado(pais) {
+    const container = document.getElementById('resultado');
+    container.innerHTML = `
+        <div class="pais-info">
+            <h2>${pais.nombre}</h2>
+            <img src="${pais.imagen}" alt="${pais.nombre}" class="pais-image">
+            <div class="info-section">
+                <h3>Condiciones del Mar</h3>
+                <p>${pais.condicionesMar}</p>
+            </div>
+            <div class="info-section">
+                <h3>Mareas</h3>
+                <p>${pais.mareas}</p>
+            </div>
+            <div class="info-section">
+                <h3>Época Ideal</h3>
+                <p>${pais.epocaIdeal}</p>
+            </div>
+            <div class="info-section">
+                <h3>Ropa Recomendada</h3>
+                <p>${pais.ropaRecomendada}</p>
+            </div>
+        </div>
+    `;
+}
+
+// Función para filtrar por región
+function filtrarPorRegion() {
+    const region = document.getElementById('regionSelect').value;
+    const container = document.getElementById('resultado');
+    
+    if (region === '') {
+        container.innerHTML = '';
+        return;
+    }
+
+    const paisesRegion = paises.filter(p => p.region === region);
+    
+    if (paisesRegion.length === 0) {
+        container.innerHTML = '<p>No hay países disponibles para esta región.</p>';
+        return;
+    }
+
+    let html = '<div class="region-info">';
+    paisesRegion.forEach(pais => {
+        html += `
+            <div class="pais-card">
+                <h3>${pais.nombre}</h3>
+                <img src="${pais.imagen}" alt="${pais.nombre}" class="pais-image">
+                <p><strong>Condiciones del Mar:</strong> ${pais.condicionesMar}</p>
+                <p><strong>Época Ideal:</strong> ${pais.epocaIdeal}</p>
+            </div>
+        `;
+    });
+    html += '</div>';
+    container.innerHTML = html;
+}
+
+// Inicializar el mapa
+let map;
+function initMap() {
+    if (map) {
+        map.remove();
+    }
+    
+    map = L.map('map').setView([0, 0], 2);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+}
+
+// Función para mostrar información por región
+function mostrarRegion(region) {
+    const infoRegion = regiones[region];
+    if (!infoRegion) return;
+
+    const container = document.getElementById('resultado');
+    container.innerHTML = `
+        <div class="region-info">
+            <h2>${infoRegion.nombre}</h2>
+            <img src="${infoRegion.imagen}" alt="${infoRegion.nombre}" class="region-image">
+            <p>${infoRegion.descripcion}</p>
+            <h3>Condiciones Generales</h3>
+            <p>${infoRegion.condicionesGenerales}</p>
+            <h3>Época Ideal</h3>
+            <p>${infoRegion.epocaIdeal}</p>
+            <h3>Especies Comunes</h3>
+            <ul>
+                ${infoRegion.especiesComunes.map(especie => `<li>${especie}</li>`).join('')}
+            </ul>
+            <h3>Equipamiento Recomendado</h3>
+            <ul>
+                ${infoRegion.equipamientoRecomendado.map(item => `<li>${item}</li>`).join('')}
+            </ul>
+        </div>
+    `;
+
+    // Actualizar las secciones de información
+    document.getElementById('condicionesMar').innerHTML = `<p>${infoRegion.condicionesGenerales}</p>`;
+    document.getElementById('epocaIdeal').innerHTML = `<p>${infoRegion.epocaIdeal}</p>`;
+    document.getElementById('ropaRecomendada').innerHTML = `<p>${infoRegion.equipamientoRecomendado.join(', ')}</p>`;
+}
+
+// Función para mostrar especies marinas
+function mostrarEspeciesMarinas(pais) {
+    const especies = paisesBuceo[pais]?.especiesMarinas || [];
+    const container = document.getElementById('especiesMarinas');
+    
+    if (especies.length === 0) {
+        container.innerHTML = '<p>No hay información disponible sobre especies marinas para este país.</p>';
+        return;
+    }
+
+    let html = '<div class="species-grid">';
+    especies.forEach(especie => {
+        html += `
+            <div class="species-card">
+                <img src="${especie.imagen}" alt="${especie.nombre}" onerror="this.src='https://via.placeholder.com/300x200?text=Imagen+no+disponible'">
+                <h4>${especie.nombre}</h4>
+                <p>${especie.descripcion}</p>
+                <p><strong>Época:</strong> ${especie.epoca}</p>
+            </div>
+        `;
+    });
+    html += '</div>';
+    container.innerHTML = html;
+}
+
+// Función para mostrar equipamiento
+function mostrarEquipamiento(pais) {
+    const equip = equipamiento[pais] || [];
+    const container = document.getElementById('equipamiento');
+    
+    if (equip.length === 0) {
+        container.innerHTML = '<p>No hay información disponible sobre equipamiento para este país.</p>';
+        return;
+    }
+
+    const html = `
+        <div class="equipment-list">
+            ${equip.map(item => `
+                <div class="equipment-item">
+                    <img src="${item.imagen}" alt="${item.nombre}">
+                    <div>
+                        <h3>${item.nombre}</h3>
+                        <p>${item.descripcion}</p>
+                    </div>
+                </div>
+            `).join('')}
+        </div>
+    `;
+    container.innerHTML = html;
+}
+
+// Función para mostrar galería
+function mostrarGaleria(pais) {
+    const imagenes = imagenesPaises[pais] || [];
+    const container = document.getElementById('galleryContainer');
+    
+    if (imagenes.length === 0) {
+        container.innerHTML = '<p>No hay imágenes disponibles para este país.</p>';
+        return;
+    }
+
+    const html = imagenes.map(img => `
+        <div class="gallery-item">
+            <img src="${img}" alt="Imagen de buceo">
+        </div>
+    `).join('');
+    container.innerHTML = html;
+}
+
+// Función para actualizar el mapa
+function actualizarMapa(pais) {
+    const paisInfo = paisesBuceo[pais];
+    if (!paisInfo || !paisInfo.coordenadas) return;
+
+    initMap();
+    const { lat, lng } = paisInfo.coordenadas;
+    map.setView([lat, lng], 8);
+    
+    L.marker([lat, lng])
+        .addTo(map)
+        .bindPopup(`<b>${paisInfo.nombre}</b><br>${paisInfo.condicionesMar}`)
+        .openPopup();
+}
+
+// Inicializar el mapa cuando se carga la página
+window.onload = function() {
+    initMap();
+};
+
+// Permitir búsqueda al presionar Enter
+document.getElementById('paisInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        buscarPais();
+    }
+});
+
 const paisesBuceo = {
     'ecuador': {
         nombre: 'Ecuador',
@@ -584,35 +851,6 @@ const informacionBuceo = {
     }
 };
 
-// Datos adicionales para especies marinas
-const especiesMarinas = {
-    'mexico': [
-        { nombre: 'Tiburón Ballena', imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e', descripcion: 'El pez más grande del mundo' },
-        { nombre: 'Manta Raya', imagen: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0', descripcion: 'Majestuosa raya que puede alcanzar hasta 7 metros' },
-        { nombre: 'Pez León', imagen: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a', descripcion: 'Colorido pero venenoso' }
-    ],
-    'australia': [
-        { nombre: 'Tiburón Blanco', imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e', descripcion: 'El gran depredador del océano' },
-        { nombre: 'Pez Payaso', imagen: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0', descripcion: 'Famoso por su relación simbiótica con las anémonas' },
-        { nombre: 'Tortuga Verde', imagen: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a', descripcion: 'Especie en peligro de extinción' }
-    ],
-    'costa rica': [
-        { nombre: 'Tiburón Martillo', imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e', descripcion: 'Especie migratoria que visita la Isla del Coco' },
-        { nombre: 'Manta Raya', imagen: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0', descripcion: 'Frecuente en las aguas del Pacífico' },
-        { nombre: 'Tortuga Verde', imagen: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a', descripcion: 'Especie protegida que anida en las playas' }
-    ],
-    'belice': [
-        { nombre: 'Tiburón de Arrecife', imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e', descripcion: 'Común en el Gran Agujero Azul' },
-        { nombre: 'Pez Ángel', imagen: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0', descripcion: 'Colorido pez de arrecife' },
-        { nombre: 'Pez León', imagen: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a', descripcion: 'Especie invasora pero hermosa' }
-    ],
-    'cuba': [
-        { nombre: 'Tiburón de Arrecife', imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e', descripcion: 'Común en los jardines de coral' },
-        { nombre: 'Pez Ángel', imagen: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0', descripcion: 'Colorido pez de arrecife' },
-        { nombre: 'Tortuga Carey', imagen: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a', descripcion: 'Especie en peligro de extinción' }
-    ]
-};
-
 // Datos de equipamiento recomendado
 const equipamiento = {
     'mexico': [
@@ -763,14 +1001,6 @@ function mostrarRegion(region) {
     document.getElementById('ropaRecomendada').innerHTML = `<p>${infoRegion.equipamientoRecomendado.join(', ')}</p>`;
 }
 
-// Función para filtrar por región
-function filtrarPorRegion() {
-    const region = document.getElementById('regionFilter').value;
-    if (region) {
-        mostrarRegion(region);
-    }
-}
-
 // Función para mostrar especies marinas
 function mostrarEspeciesMarinas(pais) {
     const especies = paisesBuceo[pais]?.especiesMarinas || [];
@@ -853,61 +1083,6 @@ function actualizarMapa(pais) {
         .addTo(map)
         .bindPopup(`<b>${paisInfo.nombre}</b><br>${paisInfo.condicionesMar}`)
         .openPopup();
-}
-
-// Función para buscar país
-function buscarPais() {
-    const input = document.getElementById('paisInput');
-    const pais = input.value.trim();
-    
-    if (pais === '') {
-        alert('Por favor, ingresa el nombre de un país');
-        return;
-    }
-
-    const paisEncontrado = paises.find(p => p.nombre.toLowerCase() === pais.toLowerCase());
-    
-    if (paisEncontrado) {
-        mostrarResultado(paisEncontrado);
-        mostrarEspeciesMarinas(paisEncontrado);
-        mostrarEquipamiento(paisEncontrado);
-        actualizarMapa(paisEncontrado);
-    } else {
-        document.getElementById('resultado').innerHTML = '<p>País no encontrado. Por favor, intenta con otro nombre.</p>';
-    }
-}
-
-// Función para mostrar resultado
-function mostrarResultado(pais) {
-    const container = document.getElementById('resultado');
-    container.innerHTML = `
-        <div class="pais-info">
-            <h2>${pais.nombre}</h2>
-            <img src="${pais.imagen}" alt="${pais.nombre}" class="pais-image">
-            <div class="info-section">
-                <h3>Condiciones del Mar</h3>
-                <p>${pais.condicionesMar}</p>
-            </div>
-            <div class="info-section">
-                <h3>Mareas</h3>
-                <p>${pais.mareas}</p>
-            </div>
-            <div class="info-section">
-                <h3>Época Ideal</h3>
-                <p>${pais.epocaIdeal}</p>
-            </div>
-            <div class="info-section">
-                <h3>Ropa Recomendada</h3>
-                <p>${pais.ropaRecomendada}</p>
-            </div>
-        </div>
-    `;
-
-    // Actualizar las secciones de información
-    document.getElementById('condicionesMar').innerHTML = `<p>${pais.condicionesMar}</p>`;
-    document.getElementById('mareas').innerHTML = `<p>${pais.mareas}</p>`;
-    document.getElementById('epocaIdeal').innerHTML = `<p>${pais.epocaIdeal}</p>`;
-    document.getElementById('ropaRecomendada').innerHTML = `<p>${pais.ropaRecomendada}</p>`;
 }
 
 // Inicializar el mapa cuando se carga la página
