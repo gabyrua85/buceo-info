@@ -2,7 +2,6 @@
 const paises = [
     {
         nombre: "México",
-        region: "América",
         imagen: "https://images.unsplash.com/photo-1512813195386-6cf811ad3542?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
         condicionesMar: "Aguas cálidas y claras en el Caribe, más frías en el Pacífico",
         mareas: "Moderadas en el Caribe, más fuertes en el Pacífico",
@@ -11,7 +10,6 @@ const paises = [
     },
     {
         nombre: "Australia",
-        region: "Oceanía",
         imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
         condicionesMar: "Aguas cálidas y claras en la Gran Barrera de Coral",
         mareas: "Moderadas, con corrientes ocasionales",
