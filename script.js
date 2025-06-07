@@ -1,19 +1,258 @@
 // Datos de países
 const paises = [
+    // América del Norte
     {
         nombre: "México",
         imagen: "https://images.unsplash.com/photo-1512813195386-6cf811ad3542?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        condicionesMar: "Aguas cálidas y claras en el Caribe, más frías en el Pacífico",
-        mareas: "Moderadas en el Caribe, más fuertes en el Pacífico",
-        epocaIdeal: "Todo el año, mejor de diciembre a abril",
-        ropaRecomendada: "Traje de neopreno 3mm en el Caribe, 5mm en el Pacífico"
+        condicionesMar: "Aguas cálidas y claras en el Caribe (26-29°C), más frías en el Pacífico (20-24°C). Visibilidad excelente en el Caribe (30-40m), moderada en el Pacífico (15-25m)",
+        mareas: "Moderadas en el Caribe, más fuertes en el Pacífico. Corrientes suaves a moderadas",
+        epocaIdeal: "Todo el año, mejor de diciembre a abril. Temporada de tiburón ballena: junio a septiembre",
+        ropaRecomendada: "Traje de neopreno 3mm en el Caribe, 5mm en el Pacífico. Guantes y capucha recomendados en el Pacífico"
     },
+    {
+        nombre: "Estados Unidos",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas templadas en Florida (24-28°C), frías en California (12-18°C). Visibilidad variable: 10-30m",
+        mareas: "Moderadas a fuertes. Corrientes significativas en algunas áreas",
+        epocaIdeal: "Florida: todo el año. California: mayo a octubre",
+        ropaRecomendada: "Florida: traje 3mm. California: traje 7mm con capucha y guantes"
+    },
+    {
+        nombre: "Canadá",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas frías (8-14°C). Visibilidad excelente (20-30m)",
+        mareas: "Moderadas. Corrientes suaves a moderadas",
+        epocaIdeal: "Junio a septiembre",
+        ropaRecomendada: "Traje seco o traje húmedo 7mm con capucha y guantes"
+    },
+    // América Central
+    {
+        nombre: "Costa Rica",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas cálidas (26-29°C). Visibilidad buena (15-25m)",
+        mareas: "Moderadas. Corrientes ocasionales",
+        epocaIdeal: "Diciembre a abril",
+        ropaRecomendada: "Traje de neopreno 3mm"
+    },
+    {
+        nombre: "Belice",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas cálidas (26-29°C). Visibilidad excelente (30-40m)",
+        mareas: "Suaves a moderadas",
+        epocaIdeal: "Abril a junio",
+        ropaRecomendada: "Traje de neopreno 3mm"
+    },
+    {
+        nombre: "Panamá",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas cálidas (26-29°C). Visibilidad buena (20-30m)",
+        mareas: "Moderadas. Corrientes ocasionales",
+        epocaIdeal: "Diciembre a abril",
+        ropaRecomendada: "Traje de neopreno 3mm"
+    },
+    {
+        nombre: "Honduras",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas cálidas (26-29°C). Visibilidad excelente (30-40m)",
+        mareas: "Suaves a moderadas",
+        epocaIdeal: "Marzo a mayo",
+        ropaRecomendada: "Traje de neopreno 3mm"
+    },
+    // América del Sur
+    {
+        nombre: "Brasil",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas cálidas (24-28°C). Visibilidad variable (10-25m)",
+        mareas: "Moderadas a fuertes",
+        epocaIdeal: "Octubre a marzo",
+        ropaRecomendada: "Traje de neopreno 3mm"
+    },
+    {
+        nombre: "Colombia",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas cálidas (26-29°C). Visibilidad buena (20-30m)",
+        mareas: "Moderadas",
+        epocaIdeal: "Diciembre a abril",
+        ropaRecomendada: "Traje de neopreno 3mm"
+    },
+    {
+        nombre: "Ecuador",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas templadas (18-24°C). Visibilidad variable (10-20m)",
+        mareas: "Fuertes. Corrientes significativas",
+        epocaIdeal: "Junio a noviembre",
+        ropaRecomendada: "Traje de neopreno 5mm"
+    },
+    {
+        nombre: "Perú",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas frías (14-18°C). Visibilidad variable (5-15m)",
+        mareas: "Fuertes",
+        epocaIdeal: "Octubre a mayo",
+        ropaRecomendada: "Traje de neopreno 7mm"
+    },
+    {
+        nombre: "Chile",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas frías (10-15°C). Visibilidad excelente (20-30m)",
+        mareas: "Moderadas a fuertes",
+        epocaIdeal: "Noviembre a marzo",
+        ropaRecomendada: "Traje seco o traje húmedo 7mm"
+    },
+    // Europa
+    {
+        nombre: "España",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas templadas (18-24°C). Visibilidad buena (15-25m)",
+        mareas: "Moderadas",
+        epocaIdeal: "Junio a septiembre",
+        ropaRecomendada: "Traje de neopreno 5mm"
+    },
+    {
+        nombre: "Italia",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas templadas (20-26°C). Visibilidad excelente (20-30m)",
+        mareas: "Suaves a moderadas",
+        epocaIdeal: "Mayo a octubre",
+        ropaRecomendada: "Traje de neopreno 5mm"
+    },
+    {
+        nombre: "Grecia",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas templadas (20-26°C). Visibilidad excelente (20-30m)",
+        mareas: "Suaves",
+        epocaIdeal: "Mayo a octubre",
+        ropaRecomendada: "Traje de neopreno 5mm"
+    },
+    {
+        nombre: "Croacia",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas templadas (20-26°C). Visibilidad excelente (20-30m)",
+        mareas: "Suaves",
+        epocaIdeal: "Junio a septiembre",
+        ropaRecomendada: "Traje de neopreno 5mm"
+    },
+    {
+        nombre: "Malta",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas templadas (20-26°C). Visibilidad excelente (20-30m)",
+        mareas: "Suaves a moderadas",
+        epocaIdeal: "Mayo a octubre",
+        ropaRecomendada: "Traje de neopreno 5mm"
+    },
+    // Asia
+    {
+        nombre: "Tailandia",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas cálidas (26-29°C). Visibilidad buena (15-25m)",
+        mareas: "Suaves",
+        epocaIdeal: "Noviembre a abril",
+        ropaRecomendada: "Traje de neopreno 3mm"
+    },
+    {
+        nombre: "Maldivas",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas cálidas (26-29°C). Visibilidad excelente (30-40m)",
+        mareas: "Suaves a moderadas",
+        epocaIdeal: "Diciembre a abril",
+        ropaRecomendada: "Traje de neopreno 3mm"
+    },
+    {
+        nombre: "Filipinas",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas cálidas (26-29°C). Visibilidad excelente (20-30m)",
+        mareas: "Moderadas",
+        epocaIdeal: "Octubre a mayo",
+        ropaRecomendada: "Traje de neopreno 3mm"
+    },
+    {
+        nombre: "Indonesia",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas cálidas (26-29°C). Visibilidad excelente (20-30m)",
+        mareas: "Moderadas a fuertes",
+        epocaIdeal: "Abril a noviembre",
+        ropaRecomendada: "Traje de neopreno 3mm"
+    },
+    {
+        nombre: "Japón",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas templadas a frías (18-24°C). Visibilidad variable (10-20m)",
+        mareas: "Moderadas a fuertes",
+        epocaIdeal: "Junio a septiembre",
+        ropaRecomendada: "Traje de neopreno 5mm"
+    },
+    // Oceanía
     {
         nombre: "Australia",
         imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        condicionesMar: "Aguas cálidas y claras en la Gran Barrera de Coral",
-        mareas: "Moderadas, con corrientes ocasionales",
-        epocaIdeal: "Todo el año, mejor de junio a noviembre",
+        condicionesMar: "Aguas templadas (22-26°C). Visibilidad excelente (20-30m)",
+        mareas: "Moderadas",
+        epocaIdeal: "Junio a noviembre",
+        ropaRecomendada: "Traje de neopreno 5mm"
+    },
+    {
+        nombre: "Nueva Zelanda",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas frías (14-18°C). Visibilidad excelente (20-30m)",
+        mareas: "Moderadas a fuertes",
+        epocaIdeal: "Diciembre a febrero",
+        ropaRecomendada: "Traje seco o traje húmedo 7mm"
+    },
+    {
+        nombre: "Fiji",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas cálidas (26-29°C). Visibilidad excelente (30-40m)",
+        mareas: "Suaves a moderadas",
+        epocaIdeal: "Abril a octubre",
+        ropaRecomendada: "Traje de neopreno 3mm"
+    },
+    {
+        nombre: "Samoa",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas cálidas (26-29°C). Visibilidad excelente (30-40m)",
+        mareas: "Suaves",
+        epocaIdeal: "Mayo a octubre",
+        ropaRecomendada: "Traje de neopreno 3mm"
+    },
+    // África
+    {
+        nombre: "Egipto",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas cálidas (24-28°C). Visibilidad excelente (30-40m)",
+        mareas: "Suaves",
+        epocaIdeal: "Marzo a mayo y septiembre a noviembre",
+        ropaRecomendada: "Traje de neopreno 3mm"
+    },
+    {
+        nombre: "Sudáfrica",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas frías (14-18°C). Visibilidad variable (10-20m)",
+        mareas: "Fuertes",
+        epocaIdeal: "Abril a septiembre",
+        ropaRecomendada: "Traje seco o traje húmedo 7mm"
+    },
+    {
+        nombre: "Mozambique",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas cálidas (24-28°C). Visibilidad buena (20-30m)",
+        mareas: "Moderadas",
+        epocaIdeal: "Abril a diciembre",
+        ropaRecomendada: "Traje de neopreno 3mm"
+    },
+    {
+        nombre: "Tanzania",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas cálidas (24-28°C). Visibilidad buena (20-30m)",
+        mareas: "Moderadas",
+        epocaIdeal: "Octubre a febrero",
+        ropaRecomendada: "Traje de neopreno 3mm"
+    },
+    {
+        nombre: "Seychelles",
+        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        condicionesMar: "Aguas cálidas (26-29°C). Visibilidad excelente (30-40m)",
+        mareas: "Suaves a moderadas",
+        epocaIdeal: "Abril a mayo y octubre a noviembre",
         ropaRecomendada: "Traje de neopreno 3mm"
     }
 ];
