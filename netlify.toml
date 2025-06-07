@@ -1,10 +1,21 @@
 [build]
   publish = "."
+  command = "echo 'Despliegue iniciado'"
+
+[build.environment]
+  NODE_VERSION = "18"
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+[dev]
+  command = "echo 'Servidor de desarrollo iniciado'"
+  port = 8888
+  targetPort = 8888
+  publish = "."
+  autoLaunch = true
 
 [[headers]]
   for = "/*"
