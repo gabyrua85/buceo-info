@@ -672,6 +672,10 @@ const coordenadasSitios = {
 // Inicializar el mapa
 let map;
 function initMap() {
+    if (map) {
+        map.remove();
+    }
+    
     map = L.map('map').setView([0, 0], 2);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors'
@@ -690,7 +694,7 @@ function filtrarPorRegion() {
 
 // Función para mostrar especies marinas
 function mostrarEspeciesMarinas(pais) {
-    const especies = especiesMarinas[pais] || [];
+    const especies = paisesBuceo[pais]?.especiesMarinas || [];
     const container = document.getElementById('especiesMarinas');
     
     if (especies.length === 0) {
@@ -698,17 +702,18 @@ function mostrarEspeciesMarinas(pais) {
         return;
     }
 
-    const html = `
-        <div class="species-grid">
-            ${especies.map(especie => `
-                <div class="species-card">
-                    <img src="${especie.imagen}" alt="${especie.nombre}">
-                    <h3>${especie.nombre}</h3>
-                    <p>${especie.descripcion}</p>
-                </div>
-            `).join('')}
-        </div>
-    `;
+    let html = '<div class="species-grid">';
+    especies.forEach(especie => {
+        html += `
+            <div class="species-card">
+                <img src="${especie.imagen}" alt="${especie.nombre}" onerror="this.src='https://via.placeholder.com/300x200?text=Imagen+no+disponible'">
+                <h4>${especie.nombre}</h4>
+                <p>${especie.descripcion}</p>
+                <p><strong>Época:</strong> ${especie.epoca}</p>
+            </div>
+        `;
+    });
+    html += '</div>';
     container.innerHTML = html;
 }
 
@@ -758,36 +763,37 @@ function mostrarGaleria(pais) {
 
 // Función para actualizar el mapa
 function actualizarMapa(pais) {
-    const coordenadas = coordenadasSitios[pais];
-    if (!coordenadas) return;
+    const paisInfo = paisesBuceo[pais];
+    if (!paisInfo || !paisInfo.coordenadas) return;
 
-    map.setView([coordenadas.lat, coordenadas.lng], 10);
-    L.marker([coordenadas.lat, coordenadas.lng])
-        .bindPopup(coordenadas.nombre)
-        .addTo(map);
+    initMap();
+    const { lat, lng } = paisInfo.coordenadas;
+    map.setView([lat, lng], 8);
+    
+    L.marker([lat, lng])
+        .addTo(map)
+        .bindPopup(`<b>${paisInfo.nombre}</b><br>${paisInfo.condicionesMar}`)
+        .openPopup();
 }
 
-// Modificar la función buscarPais existente
+// Actualizar la función buscarPais para incluir el mapa
 function buscarPais() {
-    const paisInput = document.getElementById('paisInput').value.toLowerCase();
-    const pais = paisesBuceo[paisInput];
+    const input = document.getElementById('paisInput');
+    const pais = input.value.trim();
+    
+    if (pais === '') {
+        alert('Por favor, ingresa el nombre de un país');
+        return;
+    }
 
-    if (pais) {
-        // Actualizar información existente
-        document.getElementById('condicionesMar').innerHTML = `<p>${pais.condicionesMar}</p>`;
-        document.getElementById('mareas').innerHTML = `<p>${pais.mareas}</p>`;
-        document.getElementById('epocaIdeal').innerHTML = `<p>${pais.epocaIdeal}</p>`;
-        
-        // Actualizar nuevas secciones
-        mostrarEspeciesMarinas(paisInput);
-        mostrarEquipamiento(paisInput);
-        mostrarGaleria(paisInput);
-        actualizarMapa(paisInput);
-        
-        // Actualizar fondo
-        document.getElementById('background-container').style.backgroundImage = `url(${pais.imagen})`;
+    const paisEncontrado = paisesBuceo[pais];
+    
+    if (paisEncontrado) {
+        mostrarResultado(paisEncontrado);
+        mostrarEspeciesMarinas(pais);
+        actualizarMapa(pais);
     } else {
-        alert('País no encontrado. Por favor, intenta con otro país.');
+        document.getElementById('resultado').innerHTML = '<p>País no encontrado. Por favor, intenta con otro nombre.</p>';
     }
 }
 
